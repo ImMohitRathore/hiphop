@@ -1,0 +1,48 @@
+<div class="tinder" [hidden]="!cards.length">
+  <div class="tinder--cards" [ngStyle]="{ background: currentCardImage }">
+    <div
+      *ngFor="let card of cards; let i = index"
+      #tinderCard
+      class="tinder--card shadow-lg rounded-2xl flex flex-col justify-between items-center p-0 transition-transform duration-300 cursor-grab relative"
+      (pan)="handlePan($event)"
+      (panend)="handlePanEnd($event)"
+      [style.zIndex]="cards.length - i"
+      [style.transform]="
+        'scale(' + (20 - i) / 20 + ') translateY(-' + 20 * i + 'px)'
+      "
+    >
+      <!-- Card Image -->
+      <div class="card-image-container">
+        <img
+          #tinderCardImage
+          [src]="card.img"
+          class="w-full h-full object-cover rounded-2xl"
+          (load)="tinderCardImage.style.opacity = '1'"
+        />
+      </div>
+
+      <!-- Card Content -->
+      <div
+        class="card-content text-center p-4 h-[300px] flex justify-end flex-col gap-2"
+        [ngStyle]="{ background: card?.shadow }"
+      >
+        <div class="flex flex-col">
+          <h3 class="text-3xl font-bold text-left">{{ card.title }}</h3>
+          <p class="text-sm text-gray-200 mt-1">Published on 2024-03-23</p>
+        </div>
+      </div>
+
+      <!-- Card Description -->
+      <p
+        class="card-description text-white text-left px-2 py-2"
+        [ngStyle]="{ background: currentCardImage }"
+      >
+        {{ card.description }}
+      </p>
+
+      <!-- <div class="absolute right-5 custom-bottom">
+        <ion-icon class="text-white text-3xl" name="heart-outline"></ion-icon>
+      </div> -->
+    </div>
+  </div>
+</div>

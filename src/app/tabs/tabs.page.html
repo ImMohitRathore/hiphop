@@ -1,0 +1,57 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom" class="bg-gray-900 border-t border-gray-700">
+    <ion-tab-button
+      tab="news"
+      [class.active]="selectedTab === 'news'"
+      (click)="selectTab('news')"
+      class="flex flex-col items-center bg-gray-900 bg-opacity-80"
+    >
+      <ion-icon
+        name="newspaper-outline"
+        class="text-xl"
+        [ngClass]="{'text-white': selectedTab === 'news', 'text-gray-400': selectedTab !== 'news'}"
+      ></ion-icon>
+      <ion-label
+        class="text-sm"
+        [ngClass]="{'text-white font-bold': selectedTab === 'news', 'text-gray-400': selectedTab !== 'news'}"
+        >News</ion-label
+      >
+    </ion-tab-button>
+
+    <ion-tab-button
+      tab="shows"
+      [class.active]="selectedTab === 'shows'"
+      (click)="selectTab('shows')"
+      class="flex flex-col items-center bg-gray-900 bg-opacity-80"
+    >
+      <ion-icon
+        name="musical-notes-outline"
+        class="text-xl"
+        [ngClass]="{'text-white': selectedTab === 'shows', 'text-gray-400': selectedTab !== 'shows'}"
+      ></ion-icon>
+      <ion-label
+        class="text-sm"
+        [ngClass]="{'text-white font-bold': selectedTab === 'shows', 'text-gray-400': selectedTab !== 'shows'}"
+        >Shows/Events</ion-label
+      >
+    </ion-tab-button>
+
+    <ion-tab-button
+      tab="new-music"
+      [class.active]="selectedTab === 'new-music'"
+      (click)="selectTab('new-music')"
+      class="flex flex-col items-center bg-gray-900 bg-opacity-80"
+    >
+      <ion-icon
+        name="musical-note-outline"
+        class="text-xl"
+        [ngClass]="{'text-white': selectedTab === 'new-music', 'text-gray-400': selectedTab !== 'new-music'}"
+      ></ion-icon>
+      <ion-label
+        class="text-sm"
+        [ngClass]="{'text-white font-bold': selectedTab === 'new-music', 'text-gray-400': selectedTab !== 'new-music'}"
+        >New Music</ion-label
+      >
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
